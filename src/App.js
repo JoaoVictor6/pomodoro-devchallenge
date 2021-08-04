@@ -1,8 +1,11 @@
+import { SessionContext } from './context/SessionContext';
 import Home from './pages/Home';
 
 function App() {
   return (
-    <Home />
+    <SessionContext>
+      <Home />
+    </SessionContext>
   );
 }
 
