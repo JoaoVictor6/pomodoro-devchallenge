@@ -1,8 +1,8 @@
 import { ButtonElement } from './style';
 
-function Button({ children }) {
+function Button({ children, ...props }) {
   return (
-    <ButtonElement>
+    <ButtonElement {...props}>
       {children}
     </ButtonElement>
   );
