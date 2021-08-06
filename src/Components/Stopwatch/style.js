@@ -21,4 +21,8 @@ export const StopwatchContainer = styled.div`
     border: 8px solid #219653;
     border-radius: 100%;
   }
+
+  .come-down {
+    border-color: #F2C94C;
+  }
 `;
