@@ -5,11 +5,17 @@ export const Aside = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   h2 {
     font-size: 3rem;
     font-weight: 600;
     color: #219653;
   }
+
+  .come-down {
+    color: #BEA24E;
+  }
+
   button {
     padding: 1rem 1.5rem;
   }
@@ -28,6 +34,6 @@ export const SessionsDiv = styled.div`
 
   }
   .active {
-    background: #219553;
+    background: ${(props) => (props.pause ? '#F2C94C' : '#219553')};
   }
 `;
