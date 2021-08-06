@@ -7,10 +7,13 @@ export function SessionContext({ children }) {
   const [minutes, setMinutes] = useState(0);
   const [pauseMinutes, setPauseMinutes] = useState(0);
   const [sessions, setSessions] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <Context.Provider
       value={{
+        isPaused,
+        setIsPaused,
         minutes,
         setMinutes,
         pauseMinutes,
@@ -37,6 +40,8 @@ export default function useSessionContext() {
     setPauseMinutes,
     sessions,
     setSessions,
+    isPaused,
+    setIsPaused,
   } = context;
 
   return {
@@ -46,5 +51,7 @@ export default function useSessionContext() {
     setPauseMinutes,
     sessions,
     setSessions,
+    isPaused,
+    setIsPaused,
   };
 }
