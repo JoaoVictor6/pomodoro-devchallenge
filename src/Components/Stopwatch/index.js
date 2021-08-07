@@ -30,6 +30,7 @@ export default function Stopwatch() {
       }
       if (currentPauseMinutes === 0 && seconds === 0) {
         setCurrentSession(currentSession + 1);
+        setCurrentPauseMinutes(pauseMinutes);
         return setComeDown(false);
       }
       if (seconds === 0 && currentPauseMinutes !== 0) {
