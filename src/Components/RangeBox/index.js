@@ -17,14 +17,14 @@ export default function RangeBox() {
 
   function handleClickUpArrowMinute() {
     if (minutes === 60) {
-      setMinutes(0);
+      setMinutes(1);
       return;
     }
     setMinutes(minutes + 1);
   }
 
   function handleClickDownArrowMinute() {
-    if (minutes === 0) {
+    if (minutes === 1) {
       setMinutes(60);
       return;
     }
@@ -33,14 +33,14 @@ export default function RangeBox() {
 
   function handleClickUpArrowPauseMinutes() {
     if (pauseMinutes === 15) {
-      setPauseMinutes(0);
+      setPauseMinutes(1);
       return;
     }
     setPauseMinutes(pauseMinutes + 1);
   }
 
   function handleClickDownArrowPauseMinutes() {
-    if (pauseMinutes === 0) {
+    if (pauseMinutes === 1) {
       setPauseMinutes(15);
       return;
     }
@@ -49,14 +49,14 @@ export default function RangeBox() {
 
   function handleClickUpArrowSessions() {
     if (sessions === 5) {
-      setSessions(0);
+      setSessions(1);
       return;
     }
     setSessions(sessions + 1);
   }
 
   function handleClickDownArrowSessions() {
-    if (sessions === 0) {
+    if (sessions === 1) {
       setSessions(5);
       return;
     }
