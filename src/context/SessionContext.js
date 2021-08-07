@@ -4,11 +4,11 @@ import { useState, createContext, useContext } from 'react';
 const Context = createContext();
 
 export function SessionContext({ children }) {
-  const [minutes, setMinutes] = useState(0);
+  const [minutes, setMinutes] = useState(25);
   const [currentSession, setCurrentSession] = useState(0);
-  const [pauseMinutes, setPauseMinutes] = useState(0);
+  const [pauseMinutes, setPauseMinutes] = useState(5);
   const [comeDown, setComeDown] = useState(false);
-  const [sessions, setSessions] = useState(0);
+  const [sessions, setSessions] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
 
   return (
