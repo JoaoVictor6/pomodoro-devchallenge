@@ -23,4 +23,20 @@ export const PomodoroContainer = styled.div`
     align-items: center;
   }
 
+  @media (max-width: 414px){
+    nav {
+      justify-content: center;
+      margin-top: .5rem;
+      flex-direction: column;
+    }
+
+    main {
+      flex-direction: column;
+    }
+
+    aside {
+      margin-left: 0;
+    }
+  }
+
 `;

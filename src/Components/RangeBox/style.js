@@ -13,6 +13,12 @@ export const RangeBoxElement = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2rem;
+
+  @media (max-width: 414px){
+    max-width: 100vw;
+    overflow-x: auto;
+    margin: 2rem 0 2rem 0;
+  }
 `;
 
 export const InputValueBox = styled.div`
@@ -45,6 +51,10 @@ export const InputBox = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: 414px){
+    gap: .5rem;
+  }
 `;
 
 export const ButtonDiv = styled.div`
