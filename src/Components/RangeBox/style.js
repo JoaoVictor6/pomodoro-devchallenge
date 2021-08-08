@@ -38,6 +38,10 @@ export const InputValue = styled.div`
   padding: .5rem 2.4rem;
   background: #3C4262;
   border-radius: 5px;
+
+  .overLenght {
+    font-size: 2rem;
+  }
   
   cursor: pointer;
   box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.4);
@@ -55,6 +59,7 @@ export const InputBox = styled.div`
 
   @media (max-width: 414px){
     gap: .5rem;
+    margin-right:30px;
   }
 `;
 
