@@ -16,8 +16,9 @@ export const RangeBoxElement = styled.div`
 
   @media (max-width: 414px){
     max-width: 100vw;
-    overflow-x: auto;
+    flex-direction: column;
     margin: 2rem 0 2rem 0;
+    gap: 1.3rem;
   }
 `;
 
