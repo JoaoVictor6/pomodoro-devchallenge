@@ -8,13 +8,15 @@ import donePosComeDownSoundEffect from '../../assets/sounds/donePosComeDown.ogg'
 import Button from '../Button';
 import useSessionContext from '../../context/SessionContext';
 
+const soundTicking = new Audio(tickingSoundEffect);
+const soundDone = new Audio(doneSoundEffect);
+
 export default function AsidePomodoroInfo() {
   const {
     isPaused, setIsPaused, sessions, comeDown, currentSession,
   } = useSessionContext();
 
   useEffect(() => {
-    const soundTicking = new Audio(tickingSoundEffect);
     if (!isPaused) {
       soundTicking.loop = true;
       soundTicking.play();
@@ -25,7 +27,6 @@ export default function AsidePomodoroInfo() {
   }, [isPaused]);
 
   useEffect(() => {
-    const soundDone = new Audio(doneSoundEffect);
     const soundDoneComedown = new Audio(donePosComeDownSoundEffect);
     if (comeDown) {
       soundDone.play();
