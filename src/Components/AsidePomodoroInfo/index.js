@@ -54,7 +54,7 @@ export default function AsidePomodoroInfo() {
         }
       </SessionsDiv>
 
-      <Button onClick={handlPauseEvent}>
+      <Button onClick={() => handlPauseEvent()}>
         {isPaused ? <FontAwesomeIcon icon={faPlay} />
           : <FontAwesomeIcon icon={faPause} />}
       </Button>
