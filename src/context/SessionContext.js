@@ -10,10 +10,15 @@ export function SessionContext({ children }) {
   const [comeDown, setComeDown] = useState(false);
   const [sessions, setSessions] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
+  const [currentPauseMinutes, setCurrentPauseMinutes] = useState(pauseMinutes);
+  const [currentMinutes, setCurrentMinutes] = useState(minutes);
+  const [seconds, setSeconds] = useState(0);
 
   return (
     <Context.Provider
       value={{
+        seconds,
+        setSeconds,
         comeDown,
         setComeDown,
         currentSession,
@@ -26,6 +31,10 @@ export function SessionContext({ children }) {
         setPauseMinutes,
         sessions,
         setSessions,
+        currentPauseMinutes,
+        setCurrentPauseMinutes,
+        currentMinutes,
+        setCurrentMinutes,
       }}
     >
       {children}
@@ -39,33 +48,8 @@ SessionContext.prototype = {
 
 export default function useSessionContext() {
   const context = useContext(Context);
-  const {
-    minutes,
-    setMinutes,
-    pauseMinutes,
-    setPauseMinutes,
-    sessions,
-    setSessions,
-    isPaused,
-    setIsPaused,
-    currentSession,
-    setCurrentSession,
-    comeDown,
-    setComeDown,
-  } = context;
 
   return {
-    comeDown,
-    setComeDown,
-    currentSession,
-    setCurrentSession,
-    minutes,
-    setMinutes,
-    pauseMinutes,
-    setPauseMinutes,
-    sessions,
-    setSessions,
-    isPaused,
-    setIsPaused,
+    ...context,
   };
 }
