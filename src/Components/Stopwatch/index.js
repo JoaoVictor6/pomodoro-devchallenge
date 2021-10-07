@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import useSessionContext from '../../context/SessionContext';
-import { StopwatchContainer } from './style';
+import { StopwatchContainer, ProgressBar, TimerView } from './style';
 
 export default function Stopwatch() {
   const {
@@ -13,11 +13,14 @@ export default function Stopwatch() {
     setCurrentSession,
     sessions,
     setIsPaused,
+    seconds,
+    setSeconds,
+    currentPauseMinutes,
+    setCurrentPauseMinutes,
+    currentMinutes,
+    setCurrentMinutes,
   } = useSessionContext();
-  const [currentMinutes, setCurrentMinutes] = useState(minutes);
-  const [currentPauseMinutes, setCurrentPauseMinutes] = useState(pauseMinutes);
-  const [seconds, setSeconds] = useState(0);
-
+  const [timePercent, setTimePercent] = useState(0);
   // eslint-disable-next-line consistent-return
   function stopwatch() {
     if (currentSession === sessions) {
@@ -63,23 +66,31 @@ export default function Stopwatch() {
   useEffect(() => {
     const interval = setInterval(stopwatch, 1000);
 
+    if (comeDown) {
+      const totalInSeconds = seconds + (currentPauseMinutes * 60);
+      setTimePercent(100 - (totalInSeconds * 100) / (pauseMinutes * 60));
+    } else {
+      const totalInSeconds = seconds + (currentMinutes * 60);
+      setTimePercent(100 - (totalInSeconds * 100) / (minutes * 60));
+    }
     return () => {
       clearInterval(interval);
     };
   }, [seconds, isPaused, comeDown]);
-
   return (
     <StopwatchContainer>
-      <div className={comeDown ? 'come-down' : ''}>
-        {
-          // eslint-disable-next-line no-nested-ternary
-          comeDown
-            ? currentPauseMinutes.toString().length === 1 ? `0${currentPauseMinutes}` : currentPauseMinutes
-            : currentMinutes.toString().length === 1 ? `0${currentMinutes}` : currentMinutes
-        }
-        :
-        {seconds.toString().length === 1 ? `0${seconds}` : seconds}
-      </div>
+      <ProgressBar comedown={comeDown} percent={timePercent}>
+        <TimerView>
+          {
+            // eslint-disable-next-line no-nested-ternary
+            comeDown
+              ? currentPauseMinutes.toString().length === 1 ? `0${currentPauseMinutes}` : currentPauseMinutes
+              : currentMinutes.toString().length === 1 ? `0${currentMinutes}` : currentMinutes
+          }
+          :
+          {seconds.toString().length === 1 ? `0${seconds}` : seconds}
+        </TimerView>
+      </ProgressBar>
     </StopwatchContainer>
   );
 }
