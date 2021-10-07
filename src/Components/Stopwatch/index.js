@@ -21,8 +21,6 @@ export default function Stopwatch() {
     setCurrentMinutes,
   } = useSessionContext();
   const [timePercent, setTimePercent] = useState(0);
-  setCurrentMinutes(minutes);
-  setCurrentPauseMinutes(pauseMinutes);
   // eslint-disable-next-line consistent-return
   function stopwatch() {
     if (currentSession === sessions) {
